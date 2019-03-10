@@ -212,6 +212,18 @@ docker pull nginx
 # Pull an image from a local Docker registry
 docker pull eon01/nginx localhost:5000/myadmin/nginx
 
+# Build an image based on a local Dockerfile in the current path
+docker build .
+
+# Build an image based on a remote Dockerfile
+docker build github.com/creack/docker-firefox
+
+# Tag a local image with name “httpd” into the “fedora” repository with “version1.0”
+docker tag httpd fedora/httpd:version1.0
+
+# Tag a local image with name “httpd” and tag “test” into the “fedora” repository with “version1.0.test”
+docker tag httpd:test fedora/httpd:version1.0.test
+
 # Push the local Docker image mydockerimage/nginx to the default Docker registry
 docker push mydockerimage/nginx
 ```
