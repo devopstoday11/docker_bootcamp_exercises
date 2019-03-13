@@ -4,7 +4,7 @@
 
 ## Fundamentals
 
-* [Docker](fundamentals/docker.md)
+* [Images](fundamentals/images.md)
 
 ## Cheat Sheets
 
