@@ -4,7 +4,8 @@
 
 ## Fundamentals
 
-* [Images](fundamentals/images.md)
+* [Container](fundamentals/container.md)
+* [Image](fundamentals/image.md)
 
 ## Cheat Sheets
 
