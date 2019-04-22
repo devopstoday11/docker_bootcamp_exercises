@@ -1,4 +1,4 @@
-# Images
+# Image
 
 ## Module Overview
 
@@ -7,6 +7,67 @@ At the end of this module, you will :
 * _Learn to build an image_
 * _Learn to tag an image_
 * _Learn to share an image_
+
+## Help
+
+Docker is an open source and popular operating system-level virtualization (commonly known as “containerization”) technology that runs on Linux, MacOS and Windows. Docker makes it easier to create, deploy, and run applications by using containers.
+
+Docker can package application dependencies and binaries in, what is called, docker image. It can be used across multiple environments without having to manage any dependency.
+
+Once an application is package in an image, Docker can run it in an isolated container. The isolation and the image management allow different version of an application to be deployed on the same host.
+
+Docker provide an easy command to manage each object. The default format of the command is :
+
+```bash
+docker <object> <command> <arguments>
+```
+
+The Docker command line take some parameters :
+* <object> : The Docker object to manage (container, image, secret, service, etc).
+* <command> : A verb defining what to do on the object.
+* <arguments> : Some arguments depending on the action.
+
+The recommended approach is to explicitly defined the object that you want to manage. In the case of container management, the recommended command is : docker image <command>
+
+### Exercise n°1
+
+Get the Docker image management help information from the Docker command line.
+
+{% tabs %}
+{% tab title="Command" %}
+```bash
+docker image help
+```
+{% endtab %}
+
+{% tab title="CLI Return" %}
+```bash
+Usage:	docker image COMMAND
+
+Manage images
+
+Commands:
+  build       Build an image from a Dockerfile
+  history     Show the history of an image
+  import      Import the contents from a tarball to create a filesystem image
+  inspect     Display detailed information on one or more images
+  load        Load an image from a tar archive or STDIN
+  ls          List images
+  prune       Remove unused images
+  pull        Pull an image or a repository from a registry
+  push        Push an image or a repository to a registry
+  rm          Remove one or more images
+  save        Save one or more images to a tar archive (streamed to STDOUT by default)
+  tag         Create a tag TARGET_IMAGE that refers to SOURCE_IMAGE
+
+Run 'docker image COMMAND --help' for more information on a command.
+```
+{% endtab %}
+{% endtabs %}
+
+## Search
+
+## Pull
 
 ## Create
 
@@ -299,6 +360,9 @@ docker image rm 05e305efac8d
 
 # Delete all unused images
 docker image prune
+
+# Delete all images
+docker image prune -a
 ```
 
 ## Module exercise
