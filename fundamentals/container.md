@@ -8,13 +8,154 @@ At the end of this module, you will :
 * _Learn to connect to a container_
 * _Learn to manage a container_
 
-## Create
+## Help
+
+Docker is an open source and popular operating system-level virtualization (commonly known as “containerization”) technology that runs on Linux, MacOS and Windows. Docker makes it easier to create, deploy, and run applications by using containers.
+
+With containers, developers can package up an application with everything needed to run the application : the code, a run-time, libraries, environment variables, configuration files, and ship it all out as one package.
+
+Docker provide an easy command to manage each object. The default format of the command is :
+
+```bash
+docker <object> <command> <arguments>
+```
+
+The Docker command line take some parameters :
+* <object> : The Docker object to manage (container, image, secret, service, etc).
+* <command> : A verb defining what to do on the object.
+* <arguments> : Some arguments depending on the action.
+
+The recommended approach is to explicitly defined the object that you want to manage. In the case of container management, the recommended command is : docker container <command>
+
+### Exercise n°1
+
+Get the Docker container management help information from the Docker command line.
+
+{% tabs %}
+{% tab title="Command" %}
+```bash
+docker container help
+```
+{% endtab %}
+
+{% tab title="CLI Return" %}
+```bash
+Usage:	docker container COMMAND
+
+Manage containers
+
+Commands:
+  attach      Attach local standard input, output, and error streams to a running container
+  commit      Create a new image from a container\'s changes
+  cp          Copy files/folders between a container and the local filesystem
+  create      Create a new container
+  diff        Inspect changes to files or directories on a container\'s filesystem
+  exec        Run a command in a running container
+  export      Export a container\'s filesystem as a tar archive
+  inspect     Display detailed information on one or more containers
+  kill        Kill one or more running containers
+  logs        Fetch the logs of a container
+  ls          List containers
+  pause       Pause all processes within one or more containers
+  port        List port mappings or a specific mapping for the container
+  prune       Remove all stopped containers
+  rename      Rename a container
+  restart     Restart one or more containers
+  rm          Remove one or more containers
+  run         Run a command in a new container
+  start       Start one or more stopped containers
+  stats       Display a live stream of container(s) resource usage statistics
+  stop        Stop one or more running containers
+  top         Display the running processes of a container
+  unpause     Unpause all processes within one or more containers
+  update      Update configuration of one or more containers
+  wait        Block until one or more containers stop, then print their exit codes
+
+Run 'docker container COMMAND --help' for more information on a command.
+```
+{% endtab %}
+{% endtabs %}
+
+## Run
 
 
 
-#### Exercise n°1
+### Exercise n°1
 
+Run a container based on the latest Ubuntu image and get the content of the /etc/hosts file.
 
+{% tabs %}
+{% tab title="Command" %}
+```bash
+docker container run ubuntu:latest cat /etc/hosts
+```
+{% endtab %}
+
+{% tab title="CLI Return" %}
+```bash
+Unable to find image 'ubuntu:latest' locally
+latest: Pulling from library/ubuntu
+898c46f3b1a1: Pull complete
+63366dfa0a50: Pull complete
+041d4cd74a92: Pull complete
+6e1bee0f8701: Pull complete
+Digest: sha256:017eef0b616011647b269b5c65826e2e2ebddbe5d1f8c1e56b3599fb14fabec8
+Status: Downloaded newer image for ubuntu:latest
+127.0.0.1	localhost
+::1	localhost ip6-localhost ip6-loopback
+fe00::0	ip6-localnet
+ff00::0	ip6-mcastprefix
+ff02::1	ip6-allnodes
+ff02::2	ip6-allrouters
+172.17.0.2	3cd7b8d3ef11
+```
+{% endtab %}
+{% endtabs %}
+
+### Exercise n°2
+
+Run a container based on the latest Ubuntu image in detached mode.
+
+{% tabs %}
+{% tab title="Command" %}
+```bash
+docker container run -d ubuntu:latest cat /etc/hosts
+```
+{% endtab %}
+
+{% tab title="CLI Return" %}
+```bash
+9f17869ffa1e3f0c70c62142157424f14e5e684f532e05d7d377fab99b821810
+```
+{% endtab %}
+{% endtabs %}
+
+### Exercise n°3
+
+Run a container based on the latest Ubuntu image and attach the current TTY session to the container. Run the same command : cat /etc/hosts
+
+{% tabs %}
+{% tab title="Command" %}
+```bash
+docker container run -d -i -t ubuntu:latest cat /etc/hosts
+# or
+docker container run -dit ubuntu:latest cat /etc/hosts
+```
+{% endtab %}
+
+{% tab title="CLI Return" %}
+```bash
+root@1d3eebce0ead:/# cat /etc/hosts
+127.0.0.1	localhost
+::1	localhost ip6-localhost ip6-loopback
+fe00::0	ip6-localnet
+ff00::0	ip6-mcastprefix
+ff02::1	ip6-allnodes
+ff02::2	ip6-allrouters
+172.17.0.3	1d3eebce0ead
+```
+{% endtab %}
+{% endtabs %}
 
 ## Get
 
@@ -227,8 +368,11 @@ docker container inspect 05e305efac8d
 {% endtab %}
 {% endtabs %}
 
-## Help
+## Logs
 
+## Expose
+
+## Start / Stop
 
 #### Exercise n°1
 
@@ -294,4 +438,5 @@ docker container prune
 
 Those documentations can help you to go further in this topic :
 
-* Docker official documentation on [images](https://docs.docker.com/engine/reference/commandline/images/)
+* Docker official documentation on [container](https://www.docker.com/resources/what-container)
+* Docker official documentation on [docker container command](https://docs.docker.com/engine/reference/commandline/container/)
