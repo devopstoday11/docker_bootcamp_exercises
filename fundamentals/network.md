@@ -58,6 +58,39 @@ Run 'docker network COMMAND --help' for more information on a command.
 {% endtab %}
 {% endtabs %}
 
+## Get
+
+The _get_ command list the object asked. It could be a single object or a list of multiple objects comma separated. This command is useful to get the status of each object. The output can be formatted to only display some information based on some json search or external tools like `tr`, `sort`, `uniq`.
+
+The default output display some useful information about each services :
+
+* Network Id : The unique identifier of the object
+* Name : The Docker network name
+* Driver : The Docker network driver (bridge, host or null)
+* Scope :  The scope of the Docker network
+
+#### Exercise n°1
+
+List all existing Networks.
+
+{% tabs %}
+{% tab title="Command" %}
+```bash
+docker network ls
+```
+{% endtab %}
+
+{% tab title="CLI Return" %}
+```bash
+NETWORK ID          NAME                DRIVER              SCOPE
+b1c3e7c04e1f        bridge              bridge              local
+f3b0e56f6e6d        host                host                local
+1ba11209b5e9        lq_default          bridge              local
+95490bd4af9b        none                null                local
+```
+{% endtab %}
+{% endtabs %}
+
 ## External documentation
 
 Those documentations can help you to go further in this topic :
