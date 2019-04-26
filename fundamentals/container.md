@@ -299,8 +299,9 @@ docker container ls
 
 {% tab title="CLI Return" %}
 ```bash
-CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
-30246db7d87c        ubuntu:latest       "/bin/bash"         45 seconds ago      Up 44 seconds                           nervous_ellis
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                NAMES
+45addb2045a5        nginx               "nginx -g 'daemon of…"   1 minutes ago       Up 8 minutes        0.0.0.0:80->80/tcp   mythirdnginx
+30246db7d87c        ubuntu:latest       "/bin/bash"              4 minutes ago       Up About an hour                         nervous_ellis
 ```
 {% endtab %}
 {% endtabs %}
@@ -318,13 +319,15 @@ docker container ls -a
 
 {% tab title="CLI Return" %}
 ```bash
-CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS                     PORTS               NAMES
-2454d55bb278        nginx:1.13          "nginx -g 'daemon of…"   53 seconds ago      Created                                 myversionednginx
-7e3cf55b762e        nginx               "nginx -g 'daemon of…"   2 minutes ago       Created                                 peaceful_kowalevski
-30246db7d87c        ubuntu:latest       "/bin/bash"              3 minutes ago       Up 3 minutes                                   nervous_ellis
-2cc7b7c2f836        ubuntu:latest       "cat /etc/hosts"         4 minutes ago       Exited (0) 4 minutes ago                       angry_borg
-90f245510b69        ubuntu:latest       "cat /etc/hosts"         4 minutes ago       Exited (0) 4 minutes ago                       elastic_perlman
-c83a99c41de2        ubuntu:latest       "cat /etc/hosts"         5 minutes ago       Exited (0) 5 minutes ago                       stoic_torvalds
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                NAMES
+45addb2045a5        nginx               "nginx -g 'daemon of…"   1 minutes ago       Up 5 minutes        0.0.0.0:80->80/tcp   mythirdnginx
+2454d55bb278        nginx:1.13          "nginx -g 'daemon of…"   2 minutes ago       Created                                  myversionednginx
+7e3cf55b762e        nginx               "nginx -g 'daemon of…"   3 minutes ago       Created                                  peaceful_kowalevski
+30246db7d87c        ubuntu:latest       "/bin/bash"              4 minutes ago       Up About an hour                         nervous_ellis
+                                 nervous_ellis
+2cc7b7c2f836        ubuntu:latest       "cat /etc/hosts"         5 minutes ago       Exited (0) 4 minutes ago                       angry_borg
+90f245510b69        ubuntu:latest       "cat /etc/hosts"         6 minutes ago       Exited (0) 4 minutes ago                       elastic_perlman
+c83a99c41de2        ubuntu:latest       "cat /etc/hosts"         7 minutes ago       Exited (0) 5 minutes ago                       stoic_torvalds
 ```
 {% endtab %}
 {% endtabs %}
@@ -658,6 +661,9 @@ Delete the previous volumes deployed in the default namespace.
 ```bash
 # Delete an Image specific with his identifier
 docker container rm 30246db7d87c
+
+# Delete an Image specific with his name
+docker container rm mythirdnginx
 
 # Delete all unused containers
 docker container prune
