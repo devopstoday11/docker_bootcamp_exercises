@@ -530,7 +530,7 @@ $ exit
 
 The _delete_ command delete resources by filenames, stdin, resources and names, or by resources and label selector.
 
-A Volume can only be deleted if it is not attached to a Pod. Use with caution, a deleted volumes cannot be recover.
+A container can only be deleted if it is stopped. An error message will be displayed if the container cannot be deleted.
 
 Note that the delete command does NOT do resource version checks, so if someone submits an update to a resource right when you submit a delete, their update will be lost along with the rest of the resource.
 
