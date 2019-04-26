@@ -434,6 +434,55 @@ docker container inspect 05e305efac8d
 
 ## Logs
 
+
+#### Exercise n°1
+
+Get the logs of an existing container based on his identifier.
+
+{% tabs %}
+{% tab title="Command" %}
+```bash
+docker container logs 2cc7b7c2f836
+```
+{% endtab %}
+
+{% tab title="CLI Return" %}
+```bash
+127.0.0.1	localhost
+::1	localhost ip6-localhost ip6-loopback
+fe00::0	ip6-localnet
+ff00::0	ip6-mcastprefix
+ff02::1	ip6-allnodes
+ff02::2	ip6-allrouters
+172.17.0.2	2cc7b7c2f836
+```
+{% endtab %}
+{% endtabs %}
+
+#### Exercise n°2
+
+Get the logs of an existing container based on his name.
+
+{% tabs %}
+{% tab title="Command" %}
+```bash
+docker container logs angry_borg
+```
+{% endtab %}
+
+{% tab title="CLI Return" %}
+```bash
+127.0.0.1	localhost
+::1	localhost ip6-localhost ip6-loopback
+fe00::0	ip6-localnet
+ff00::0	ip6-mcastprefix
+ff02::1	ip6-allnodes
+ff02::2	ip6-allrouters
+172.17.0.2	2cc7b7c2f836
+```
+{% endtab %}
+{% endtabs %}
+
 ## Expose
 
 ## Start / Stop
