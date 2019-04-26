@@ -483,9 +483,48 @@ ff02::2	ip6-allrouters
 {% endtab %}
 {% endtabs %}
 
-## Expose
-
 ## Start / Stop
+
+## Exec
+
+
+#### Exercise n°1
+
+Connect to an existing container based on his identifier.
+
+{% tabs %}
+{% tab title="Command" %}
+```bash
+docker container exec -it 30246db7d87c sh
+```
+{% endtab %}
+
+{% tab title="CLI Return" %}
+```bash
+$
+$ exit
+```
+{% endtab %}
+{% endtabs %}
+
+#### Exercise n°2
+
+Connect to an existing container based on his name.
+
+{% tabs %}
+{% tab title="Command" %}
+```bash
+docker container exec -it nervous_ellis sh
+```
+{% endtab %}
+
+{% tab title="CLI Return" %}
+```bash
+$
+$ exit
+```
+{% endtab %}
+{% endtabs %}
 
 ## Delete
 
