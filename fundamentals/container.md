@@ -542,7 +542,7 @@ Delete the previous volumes deployed in the default namespace.
 # Delete an Image specific with his identifier
 docker container rm 30246db7d87c
 
-# Delete all unused images
+# Delete all unused containers
 docker container prune
 ```
 
