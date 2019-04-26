@@ -157,6 +157,61 @@ ff02::2	ip6-allrouters
 {% endtab %}
 {% endtabs %}
 
+## Create
+
+
+#### Exercise n°1
+
+Create an nginx container named _mylatestnginx_ based on the latest version
+
+{% tabs %}
+{% tab title="Command" %}
+```bash
+docker container create --name mylatestnginx nginx
+# or 
+docker container create --name mylatestnginx nginx:latest
+```
+{% endtab %}
+
+{% tab title="CLI Return" %}
+```bash
+Unable to find image 'nginx:latest' locally
+latest: Pulling from library/nginx
+27833a3ba0a5: Pull complete 
+ea005e36e544: Pull complete 
+d172c7f0578d: Pull complete 
+Digest: sha256:e71b1bf4281f25533cf15e6e5f9be4dac74d2328152edf7ecde23abc54e16c1c
+Status: Downloaded newer image for nginx:latest
+7e3cf55b762e53b309f4aa946837eb5320b4702edba916ce534e2e0c90914e2a
+```
+{% endtab %}
+{% endtabs %}
+
+#### Exercise n°2
+
+Create an nginx container named _myversionednginx_ based on the 1.13 version
+
+{% tabs %}
+{% tab title="Command" %}
+```bash
+docker container create --name myversionednginx nginx:1.13
+```
+{% endtab %}
+
+{% tab title="CLI Return" %}
+```bash
+Unable to find image 'nginx:1.13' locally
+1.13: Pulling from library/nginx
+f2aa67a397c4: Pull complete 
+3c091c23e29d: Pull complete 
+4a99993b8636: Pull complete 
+Digest: sha256:b1d09e9718890e6ebbbd2bc319ef1611559e30ce1b6f56b2e3b479d9da51dc35
+Status: Downloaded newer image for nginx:1.13
+2454d55bb278d807eab2f50bd4b74bcf9946d95ff0e4a6e39f3bc7c93f718c30
+```
+{% endtab %}
+{% endtabs %}
+
 ## Get
 
 The _get_ command list the object asked. It could be a single object or a list of multiple objects comma separated. This command is useful to get the status of each object. The output can be formatted to only display some information based on some json search or external tools like `tr`, `sort`, `uniq`.
@@ -204,10 +259,12 @@ docker container ls -a
 {% tab title="CLI Return" %}
 ```bash
 CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS                     PORTS               NAMES
-30246db7d87c        ubuntu:latest       "/bin/bash"         3 minutes ago       Up 3 minutes                                   nervous_ellis
-2cc7b7c2f836        ubuntu:latest       "cat /etc/hosts"    4 minutes ago       Exited (0) 4 minutes ago                       angry_borg
-90f245510b69        ubuntu:latest       "cat /etc/hosts"    4 minutes ago       Exited (0) 4 minutes ago                       elastic_perlman
-c83a99c41de2        ubuntu:latest       "cat /etc/hosts"    5 minutes ago       Exited (0) 5 minutes ago                       stoic_torvalds
+2454d55bb278        nginx:1.13          "nginx -g 'daemon of…"   53 seconds ago      Created                                 myversionednginx
+7e3cf55b762e        nginx               "nginx -g 'daemon of…"   2 minutes ago       Created                                 peaceful_kowalevski
+30246db7d87c        ubuntu:latest       "/bin/bash"              3 minutes ago       Up 3 minutes                                   nervous_ellis
+2cc7b7c2f836        ubuntu:latest       "cat /etc/hosts"         4 minutes ago       Exited (0) 4 minutes ago                       angry_borg
+90f245510b69        ubuntu:latest       "cat /etc/hosts"         4 minutes ago       Exited (0) 4 minutes ago                       elastic_perlman
+c83a99c41de2        ubuntu:latest       "cat /etc/hosts"         5 minutes ago       Exited (0) 5 minutes ago                       stoic_torvalds
 ```
 {% endtab %}
 {% endtabs %}
