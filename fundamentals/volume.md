@@ -56,6 +56,37 @@ Run 'docker volume COMMAND --help' for more information on a command.
 {% endtab %}
 {% endtabs %}
 
+## Get
+
+The _get_ command list the object asked. It could be a single object or a list of multiple objects comma separated. This command is useful to get the status of each object. The output can be formatted to only display some information based on some json search or external tools like `tr`, `sort`, `uniq`.
+
+The default output display some useful information about each services :
+
+* Driver : The Docker volume driver
+* Volume Name :  The name of the object
+
+#### Exercise n°1
+
+List all existing Volumes.
+
+{% tabs %}
+{% tab title="Command" %}
+```bash
+docker volume ls
+```
+{% endtab %}
+
+{% tab title="CLI Return" %}
+```bash
+DRIVER              VOLUME NAME
+local               13ed7133cfdf1fb0289692b8c9f4775960d1f16783b4aed46215dc655ec08126
+local               21a8830e9ca97ab298bd0e3a35f1a53f3c20c54d42e16acecf1453ee8a398517
+local               275926fdf1fb31d896517663c8439dd5cc84917637b40ef1d9f08fbd2164c910
+local               724880a01889b0c2aee86ad21e5d9e490bf938553af8e1904500061c0bb23280
+```
+{% endtab %}
+{% endtabs %}
+
 ## External documentation
 
 Those documentations can help you to go further in this topic :
