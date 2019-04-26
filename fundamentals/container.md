@@ -21,9 +21,9 @@ docker <object> <command> <arguments>
 ```
 
 The Docker command line take some parameters :
-* <object> : The Docker object to manage (container, image, secret, service, etc).
-* <command> : A verb defining what to do on the object.
-* <arguments> : Some arguments depending on the action.
+* Object : The Docker object to manage (container, image, secret, service, etc).
+* Command : A verb defining what to do on the object.
+* Arguments : Some arguments depending on the action.
 
 The recommended approach is to explicitly defined the object that you want to manage. In the case of container management, the recommended command is : docker container <command>
 
