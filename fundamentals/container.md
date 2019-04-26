@@ -157,6 +157,71 @@ ff02::2	ip6-allrouters
 {% endtab %}
 {% endtabs %}
 
+#### Exercise n°4
+
+Run a detached nginx container named _mythirdnginx_ based on the latest version and expose the port 80.
+
+{% tabs %}
+{% tab title="Command" %}
+```bash
+docker container run -d --name mythirdnginx --port 80:80 nginx
+```
+{% endtab %}
+
+{% tab title="CLI Return" %}
+```bash
+Unable to find image 'nginx:latest' locally
+latest: Pulling from library/nginx
+27833a3ba0a5: Pull complete 
+ea005e36e544: Pull complete 
+d172c7f0578d: Pull complete 
+Digest: sha256:e71b1bf4281f25533cf15e6e5f9be4dac74d2328152edf7ecde23abc54e16c1c
+Status: Downloaded newer image for nginx:latest
+45addb2045a54c4eeac6f84e2c661befcb4b060bd03387d4657e47120ca33bb2
+```
+{% endtab %}
+{% endtabs %}
+
+Try to access the nginx default web page to ensure that the web server is up.
+
+{% tabs %}
+{% tab title="Command" %}
+```bash
+curl http://127.0.0.1
+```
+{% endtab %}
+
+{% tab title="CLI Return" %}
+```bash
+<!DOCTYPE html>
+<html>
+<head>
+<title>Welcome to nginx!</title>
+<style>
+    body {
+        width: 35em;
+        margin: 0 auto;
+        font-family: Tahoma, Verdana, Arial, sans-serif;
+    }
+</style>
+</head>
+<body>
+<h1>Welcome to nginx!</h1>
+<p>If you see this page, the nginx web server is successfully installed and
+working. Further configuration is required.</p>
+
+<p>For online documentation and support please refer to
+<a href="http://nginx.org/">nginx.org</a>.<br/>
+Commercial support is available at
+<a href="http://nginx.com/">nginx.com</a>.</p>
+
+<p><em>Thank you for using nginx.</em></p>
+</body>
+</html>
+```
+{% endtab %}
+{% endtabs %}
+
 ## Create
 
 
@@ -175,17 +240,12 @@ docker container create --name mylatestnginx nginx:latest
 
 {% tab title="CLI Return" %}
 ```bash
-Unable to find image 'nginx:latest' locally
-latest: Pulling from library/nginx
-27833a3ba0a5: Pull complete 
-ea005e36e544: Pull complete 
-d172c7f0578d: Pull complete 
-Digest: sha256:e71b1bf4281f25533cf15e6e5f9be4dac74d2328152edf7ecde23abc54e16c1c
-Status: Downloaded newer image for nginx:latest
 7e3cf55b762e53b309f4aa946837eb5320b4702edba916ce534e2e0c90914e2a
 ```
 {% endtab %}
 {% endtabs %}
+
+{% hint style="info" %} Note that the latest nginx Docker image is not downloaded because it has already be done in the previous exercise. {% endhint %}
 
 #### Exercise n°2
 
