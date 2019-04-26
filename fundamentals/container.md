@@ -500,8 +500,8 @@ Note that the delete command does NOT do resource version checks, so if someone 
 Delete the previous volumes deployed in the default namespace.
 
 ```bash
-# Delete an Image specific with is identifier
-docker container rm 05e305efac8d
+# Delete an Image specific with his identifier
+docker container rm 30246db7d87c
 
 # Delete all unused images
 docker container prune
